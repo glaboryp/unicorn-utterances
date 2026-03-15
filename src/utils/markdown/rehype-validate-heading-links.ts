@@ -30,7 +30,7 @@ export const rehypeValidateHeadingLinks: Plugin<[], Root> = () => {
 				return CONTINUE;
 			}
 
-			node.properties["href"] = headingSlug;
+			node.properties["href"] = `#${headingSlug}`;
 		});
 	};
 };
