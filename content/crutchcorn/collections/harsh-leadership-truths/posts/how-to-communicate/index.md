@@ -1,8 +1,8 @@
 ---
 {
     title: "How to Communicate",
-    description: "",
-    published: "2027-01-01T13:45:00.284Z",
+    description: "Communication is one of the most critical skills for engineers to master, yet it's often overlooked.",
+    published: "2026-03-16T13:45:00.284Z",
     tags: ['leadership', 'opinion'],
     license: 'cc-by-4',
     order: 3
