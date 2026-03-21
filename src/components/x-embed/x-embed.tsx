@@ -84,7 +84,7 @@ export function XEmbedPlaceholder({
 				<div className={style.mediaContainer}>
 					<img
 						src={picture.src}
-						alt={picture.altText}
+						alt={picture.altText ?? ""}
 						width={picture.width}
 						height={picture.height}
 						style={{
