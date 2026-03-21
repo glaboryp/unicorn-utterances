@@ -42,7 +42,7 @@ export async function rehypeTransformGist({
 	];
 }
 
-function limitStringToNLines(longString: string, numberOfLines: number) {
+function limitStringToNLines(longString: string, _numberOfLines: number) {
 	// Split the string into an array of lines based on newline characters
 	const lines = longString.split("\n");
 
