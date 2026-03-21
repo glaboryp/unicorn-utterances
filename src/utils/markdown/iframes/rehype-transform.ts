@@ -94,6 +94,9 @@ export const rehypeUnicornIFrameClickToRun: Plugin<
 						src,
 						metadata,
 						embed: metadata.embed,
+					}).catch((e) => {
+						logError(file, node, "Error loading gist data:", e);
+						return undefined;
 					});
 				}
 				if (metadata?.embed?.type === "video") {
