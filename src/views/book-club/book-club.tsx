@@ -118,9 +118,9 @@ export default function BookClub({ eventBlocksWithMetadata }: BookClubProps) {
 		});
 	}, [eventBlocksWithMetadata]);
 
-	const { pastEventBlocks, currentEventBlock } = useMemo(() => {
+	const { pastEventBlocks, currentEventBlocks } = useMemo(() => {
 		const pastEventBlocks: EventBlockWithMetadata[] = [];
-		const currentEventsBlock: EventBlockWithMetadata[] = [];
+		const currentEventBlocks: EventBlockWithMetadata[] = [];
 		const now = new Date();
 
 		let foundFuture = false;
@@ -130,13 +130,13 @@ export default function BookClub({ eventBlocksWithMetadata }: BookClubProps) {
 			}
 
 			if (foundFuture) {
-				currentEventsBlock.push(block);
+				currentEventBlocks.push(block);
 			} else {
 				pastEventBlocks.push(block);
 			}
 		}
 
-		return { pastEventBlocks, currentEventBlock: currentEventsBlock };
+		return { pastEventBlocks, currentEventBlocks };
 	}, [sortedEventBlocks]);
 
 	return (
@@ -179,7 +179,7 @@ export default function BookClub({ eventBlocksWithMetadata }: BookClubProps) {
 			</div>
 			<div className={style.listsContainer}>
 				<ul className={style.largeCardList}>
-					{currentEventBlock.map((block) => (
+					{currentEventBlocks.map((block) => (
 						<BookClubLargeCard eventBlock={block} key={block.slug} />
 					))}
 				</ul>
