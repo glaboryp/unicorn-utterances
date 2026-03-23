@@ -132,9 +132,11 @@ export default function BookClub({ eventBlocksWithMetadata }: BookClubProps) {
 			if (foundFuture) {
 				currentEventBlocks.push(block);
 			} else {
-				pastEventBlocks.unshift(block);
+				pastEventBlocks.push(block);
 			}
 		}
+
+		pastEventBlocks.reverse();
 
 		return { pastEventBlocks, currentEventBlocks };
 	}, [sortedEventBlocks]);
