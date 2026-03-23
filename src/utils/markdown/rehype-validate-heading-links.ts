@@ -16,7 +16,19 @@ export const rehypeValidateHeadingLinks: Plugin<[], Root> = () => {
 		const headings = file.data.headingsWithIds;
 		const headingSlugsMap = new Map<string, string>();
 		for (const { slug } of headings) {
-			headingSlugsMap.set(slug.toLowerCase(), slug);
+			const lowerSlug = slug.toLowerCase();
+			const existingSlug = headingSlugsMap.get(lowerSlug);
+
+			if (existingSlug && existingSlug !== slug) {
+				logError(
+					file,
+					tree,
+					`[${rehypeValidateHeadingLinks.name}] Multiple headings normalize to "${lowerSlug}" ("${existingSlug}" and "${slug}") in "${file.path}". Using first occurrence.`,
+				);
+				continue;
+			}
+
+			headingSlugsMap.set(lowerSlug, slug);
 		}
 
 		visit(tree, { type: "element", tagName: "a" }, (node) => {
