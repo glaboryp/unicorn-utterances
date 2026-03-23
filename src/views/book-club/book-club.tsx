@@ -65,7 +65,7 @@ function BookClubSmallCard({ eventBlock }: BookClubSmallCardProps) {
 	return (
 		<li className={style.smallCardContainer}>
 			<p className={`text-style-headline-5 ${style.smallEventBlockDate}`}>
-				{dayjs(eventBlock.starts_at).format("dddd, MMM D")}
+				{dayjs(eventBlock.starts_at).format("MMM D, YYYY")}
 			</p>
 			<div
 				className={style.smallCard}
