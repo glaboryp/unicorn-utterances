@@ -1,7 +1,7 @@
-import env from "constants/env";
-import { createComponent } from "../components";
-import { RehypeFunctionComponent } from "../types";
-import { getPersonById } from "utils/api";
+import env from "#src/constants/env/index.ts";
+import { createComponent } from "../components.ts";
+import type { RehypeFunctionComponent } from "../types.ts";
+import { getPersonById } from "#utils/api.ts";
 
 export const transformUser: RehypeFunctionComponent = ({ attributes }) => {
 	const user = attributes.id;

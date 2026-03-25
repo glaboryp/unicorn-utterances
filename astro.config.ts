@@ -3,7 +3,7 @@ import preact from "@astrojs/preact";
 import icon from "astro-icon";
 import symlink from "symlink-dir";
 import * as path from "path";
-import { AstroUserConfig } from "astro";
+import type { AstroUserConfig } from "astro";
 import node from "@astrojs/node";
 
 await symlink(path.resolve("content"), path.resolve("public/content"));

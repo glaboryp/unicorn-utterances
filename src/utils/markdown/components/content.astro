@@ -1,11 +1,11 @@
 ---
+import type { ComponentNode } from "#utils/markdown/components/components.ts";
 import {
 	components,
-	ComponentNode,
 	isHtmlNode,
 	isComponentNode,
-} from "utils/markdown/components/components";
-import { isRoot } from "../unist-is-element";
+} from "#utils/markdown/components/components.ts";
+import { isRoot } from "../unist-is-element.ts";
 
 export interface Props {
 	content: ComponentNode["children"];

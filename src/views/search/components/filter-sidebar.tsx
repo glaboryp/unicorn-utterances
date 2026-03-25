@@ -1,16 +1,16 @@
 import styles from "./filter-sidebar.module.scss";
-import { LargeButton } from "components/button/button";
-import { CSSProperties } from "preact";
-import { FilterSection } from "./filter-section";
-import { FilterSectionItem } from "./filter-section-item";
-import { Picture as UUPicture } from "components/image/picture";
-import { ExtendedTag, ExtendedUnicorn } from "./types";
-import { DisplayContentType, SortType } from "src/views/search/search";
-import { DEFAULT_TAG_EMOJI } from "./constants";
-import { FilterSidebarControls } from "./filter-sidebar-controls";
-import { FilterState } from "../use-filter-state";
+import { LargeButton } from "#components/button/button.tsx";
+import type { CSSProperties } from "preact";
+import { FilterSection } from "./filter-section.tsx";
+import { FilterSectionItem } from "./filter-section-item.tsx";
+import { Picture as UUPicture } from "#components/image/picture.tsx";
+import type { ExtendedTag, ExtendedUnicorn } from "./types.ts";
+import type { DisplayContentType, SortType } from "#src/views/search/search.ts";
+import { DEFAULT_TAG_EMOJI } from "./constants.ts";
+import { FilterSidebarControls } from "./filter-sidebar-controls.tsx";
+import type { FilterState } from "../use-filter-state.ts";
 import { useState, useMemo, useEffect } from "preact/hooks";
-import { SearchInput } from "components/input/input";
+import { SearchInput } from "#components/input/input.tsx";
 
 interface FilterSidebarProps {
 	desktopStyle?: CSSProperties;

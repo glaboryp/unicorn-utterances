@@ -1,4 +1,10 @@
-import { Inputs, useCallback, useEffect, useRef, useState } from "preact/hooks";
+import {
+	type Inputs,
+	useCallback,
+	useEffect,
+	useRef,
+	useState,
+} from "preact/hooks";
 
 export function useDebouncedValue<T>(value: T, delay: number) {
 	const [debouncedValue, setDebouncedValue] = useState(value);

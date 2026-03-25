@@ -6,8 +6,8 @@ import {
 	useRef,
 	useState,
 } from "preact/hooks";
-import { Pagination } from "components/pagination/pagination";
-import { useSearchParams } from "./use-search-params";
+import { Pagination } from "#components/pagination/pagination.tsx";
+import { useSearchParams } from "./use-search-params.ts";
 import {
 	QueryClient,
 	QueryClientProvider,
@@ -15,36 +15,36 @@ import {
 } from "@tanstack/react-query";
 
 import style from "./search-page.module.scss";
-import { PostCardGrid } from "components/post-card/post-card-grid";
+import { PostCardGrid } from "#components/post-card/post-card-grid.tsx";
 import { Fragment } from "preact";
-import { CollectionCard } from "components/collection-card/collection-card";
-import { FilterDisplay } from "./components/filter-display";
-import { useElementSize } from "../../hooks/use-element-size";
-import { SearchTopbar } from "./components/search-topbar";
-import { SearchHero } from "./components/search-hero";
-import { LargeButton } from "components/button/button";
-import retry from "src/icons/refresh.svg?raw";
+import { CollectionCard } from "#components/collection-card/collection-card.tsx";
+import { FilterDisplay } from "./components/filter-display.tsx";
+import { useElementSize } from "../../hooks/use-element-size.tsx";
+import { SearchTopbar } from "./components/search-topbar.tsx";
+import { SearchHero } from "./components/search-hero.tsx";
+import { LargeButton } from "#components/button/button.tsx";
+import retry from "#src/icons/refresh.svg?raw";
 import sadUnicorn from "../../assets/unicorn_sad.svg";
 import happyUnicorn from "../../assets/unicorn_happy.svg";
 import scaredUnicorn from "../../assets/unicorn_scared.svg";
 import {
-	SearchQuery,
+	type SearchQuery,
+	type DisplayContentType,
+	type SortType,
+	type SearchFiltersData,
 	serializeParams,
 	deserializeParams,
-	DisplayContentType,
-	SortType,
-	SearchFiltersData,
 	PAGE_KEY,
-} from "./search";
-import { SearchResultCount } from "./components/search-result-count";
-import { isDefined } from "utils/is-defined";
-import { SearchProvider, useSearch } from "./services";
+} from "./search.ts";
+import { SearchResultCount } from "./components/search-result-count.tsx";
+import { isDefined } from "#utils/is-defined.ts";
+import { SearchProvider, useSearch } from "./services.tsx";
 import {
 	MAX_COLLECTIONS_PER_PAGE,
 	MAX_POSTS_PER_PAGE,
 	// HYBRID_SEARCH_ACTIVATION_THRESHOLD,
-} from "./constants";
-import { useFilterState } from "./use-filter-state";
+} from "./constants.ts";
+import { useFilterState } from "./use-filter-state.ts";
 
 function usePersistedEmptyRef<T extends object>(value: T) {
 	const ref = useRef<T>();

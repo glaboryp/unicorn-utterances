@@ -1,16 +1,19 @@
 import { useCallback, useEffect, useState } from "preact/hooks";
 import styles from "./filter-dialog.module.scss";
-import { useWindowSize } from "src/hooks/use-window-size";
-import { mobile } from "src/tokens/breakpoints";
-import { Dialog } from "components/dialog/dialog";
-import { FilterSection } from "./filter-section";
-import { ExtendedTag, ExtendedUnicorn } from "./types";
-import { LargeButton, LargeIconOnlyButton } from "components/button/button";
-import { FilterSectionItem } from "./filter-section-item";
-import { Picture as UUPicture } from "components/image/picture";
-import { DEFAULT_TAG_EMOJI } from "./constants";
-import close from "src/icons/close.svg?raw";
-import { FilterState, useFilterState } from "../use-filter-state";
+import { useWindowSize } from "#src/hooks/use-window-size.tsx";
+import { mobile } from "#src/tokens/breakpoints.ts";
+import { Dialog } from "#components/dialog/dialog.tsx";
+import { FilterSection } from "./filter-section.tsx";
+import type { ExtendedTag, ExtendedUnicorn } from "./types.ts";
+import {
+	LargeButton,
+	LargeIconOnlyButton,
+} from "#components/button/button.tsx";
+import { FilterSectionItem } from "./filter-section-item.tsx";
+import { Picture as UUPicture } from "#components/image/picture.tsx";
+import { DEFAULT_TAG_EMOJI } from "./constants.ts";
+import close from "#src/icons/close.svg?raw";
+import { type FilterState, useFilterState } from "../use-filter-state.ts";
 
 interface FilterDialogProps {
 	isOpen: boolean;

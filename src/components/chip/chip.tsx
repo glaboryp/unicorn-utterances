@@ -1,6 +1,6 @@
-import { PropsWithChildren } from "../types";
+import type { PropsWithChildren } from "../types.ts";
 import style from "./chip.module.scss";
-import { AnchorHTMLAttributes, ButtonHTMLAttributes } from "preact";
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from "preact";
 import { forwardRef } from "preact/compat";
 
 type ChipProps = PropsWithChildren<{

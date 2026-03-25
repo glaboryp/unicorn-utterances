@@ -1,14 +1,14 @@
 import { getHeaderNodeId, slugs } from "rehype-slug-custom-id";
-import { Element } from "hast";
+import type { Element } from "hast";
 import { toString } from "hast-util-to-string";
-import { RehypeFunctionComponent } from "../types";
-import { TabInfo } from "./types";
-import { createComponent, PlayfulRoot } from "../components";
+import type { RehypeFunctionComponent } from "../types.ts";
+import type { TabInfo } from "./types.ts";
+import { type PlayfulRoot, createComponent } from "../components.ts";
 import {
 	findLargestHeading,
 	isNodeLargestHeading,
 	isNodeHeading,
-} from "../utils/headings";
+} from "../utils/headings.ts";
 
 export const transformTabs: RehypeFunctionComponent = async ({ children }) => {
 	let sectionStarted = false;

@@ -1,6 +1,6 @@
-import { expect, test } from "ui-test-utils";
+import { expect, test } from "#src/ui-test-utils/index.ts";
 import { renderHook } from "@testing-library/preact";
-import { usePagination } from "./use-pagination";
+import { usePagination } from "./use-pagination.ts";
 
 test("usePagination returns pages from 1..3", async () => {
 	const pagination = renderHook(() => {

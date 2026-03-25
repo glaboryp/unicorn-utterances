@@ -5,6 +5,7 @@ import astroParser from "astro-eslint-parser";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import eslintPluginAstro from "eslint-plugin-astro";
+import eslintPluginImport from "eslint-plugin-import";
 import preactConfig from "eslint-config-preact";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -12,8 +13,13 @@ const __dirname = path.dirname(__filename);
 
 const pfpTypeScriptRules = {
 	"@typescript-eslint/ban-types": "off",
+	"@typescript-eslint/consistent-type-imports": [
+		"error",
+		{ disallowTypeAnnotations: false },
+	],
 	"@typescript-eslint/no-empty-interface": "off",
 	"@typescript-eslint/no-unused-vars": "off",
+	"import/extensions": ["error", "always", { ignorePackages: true }],
 };
 
 export default tseslint.config(
@@ -79,6 +85,9 @@ export default tseslint.config(
 	// Astro files configuration
 	{
 		files: ["**/*.astro"],
+		plugins: {
+			import: eslintPluginImport,
+		},
 		languageOptions: {
 			parser: astroParser,
 			parserOptions: {
@@ -92,6 +101,9 @@ export default tseslint.config(
 	// TypeScript configuration
 	{
 		files: ["**/*.ts", "**/*.tsx"],
+		plugins: {
+			import: eslintPluginImport,
+		},
 		languageOptions: {
 			parserOptions: {
 				tsconfigRootDir: __dirname,

@@ -1,22 +1,22 @@
 import {
+	type ButtonProps,
+	type CalendarGridProps,
+	type CalendarState,
+	type CalendarCellProps,
+	type CalendarCellRenderProps,
 	ButtonContext,
-	ButtonProps,
 	Calendar as AriaCalendar,
 	CalendarGrid,
 	CalendarGridBody,
 	CalendarGridHeader,
-	CalendarGridProps,
 	CalendarHeaderCell,
 	useContextProps,
-	CalendarState,
-	CalendarCellProps,
 	CalendarStateContext,
 	useRenderProps,
-	CalendarCellRenderProps,
 } from "react-aria-components";
 import arrow_left from "../../../../icons/arrow_left.svg?raw";
 import arrow_right from "../../../../icons/arrow_right.svg?raw";
-import { ForwardedRef, forwardRef } from "preact/compat";
+import { type ForwardedRef, forwardRef } from "preact/compat";
 import {
 	DismissButton,
 	mergeProps,
@@ -30,13 +30,13 @@ import {
 	useOverlayTrigger,
 	usePopover,
 } from "react-aria";
-import { IconOnlyButton } from "components/button/button";
+import { IconOnlyButton } from "#components/button/button.tsx";
 import style from "./calendar.module.scss";
-import { useWindowSize } from "../../../../hooks/use-window-size";
-import { tabletLarge, tabletSmall } from "../../../../tokens/breakpoints";
-import { MutableRef, useContext, useMemo, useRef } from "preact/hooks";
+import { useWindowSize } from "../../../../hooks/use-window-size.tsx";
+import { tabletLarge, tabletSmall } from "../../../../tokens/breakpoints.ts";
+import { type MutableRef, useContext, useMemo, useRef } from "preact/hooks";
 import {
-	CalendarDate,
+	type CalendarDate,
 	fromDate,
 	isSameMonth,
 	isToday,
@@ -46,14 +46,17 @@ import { filterDOMProps } from "@react-aria/utils";
 // 	and access the hookData map. It only works when Vite aliases this, as otherwise the bundle
 // 	will differ from the lookup table of the server and cause runtime bugs due to the mismatch.
 import { hookData } from "@react-aria/calendar/dist/utils.mjs";
-import { Event } from "../../types";
+import type { Event } from "../../types.ts";
 import dayjs from "dayjs";
-import { useIsOnClient } from "../../../../hooks/use-is-on-client";
-import { useReactAriaScrollGutterHack } from "../../../../hooks/useReactAriaScrollGutterHack";
-import { OverlayTriggerState, useOverlayTriggerState } from "react-stately";
-import { DOMProps } from "@react-types/shared";
-import author from "src/icons/authors.svg?raw";
-import wifi from "src/icons/wifi.svg?raw";
+import { useIsOnClient } from "../../../../hooks/use-is-on-client.ts";
+import { useReactAriaScrollGutterHack } from "../../../../hooks/useReactAriaScrollGutterHack.ts";
+import {
+	type OverlayTriggerState,
+	useOverlayTriggerState,
+} from "react-stately";
+import type { DOMProps } from "@react-types/shared";
+import author from "#src/icons/authors.svg?raw";
+import wifi from "#src/icons/wifi.svg?raw";
 
 const CustomButton = forwardRef(
 	(

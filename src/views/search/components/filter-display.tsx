@@ -1,14 +1,14 @@
 import { useMemo } from "preact/hooks";
-import { PersonInfo, TagInfo } from "types/index";
-import { CSSProperties } from "preact";
-import { useWindowSize } from "../../../hooks/use-window-size";
-import { tabletLarge } from "../../../tokens/breakpoints";
-import { FilterDialog } from "./filter-dialog";
-import { FilterSidebar } from "./filter-sidebar";
+import type { PersonInfo, TagInfo } from "#types/index.ts";
+import type { CSSProperties } from "preact";
+import { useWindowSize } from "../../../hooks/use-window-size.ts";
+import { tabletLarge } from "../../../tokens/breakpoints.ts";
+import { FilterDialog } from "./filter-dialog.tsx";
+import { FilterSidebar } from "./filter-sidebar.tsx";
 import tagsObj from "../../../../content/data/tags.json";
-import { DisplayContentType, SortType } from "src/views/search/search";
-import { ExtendedTag, ExtendedUnicorn } from "./types";
-import { FilterState } from "../use-filter-state";
+import type { DisplayContentType, SortType } from "#src/views/search/search.ts";
+import type { ExtendedTag, ExtendedUnicorn } from "./types.ts";
+import type { FilterState } from "../use-filter-state.ts";
 
 const tagsMap: Map<string, TagInfo> = new Map(Object.entries(tagsObj));
 

@@ -17,7 +17,7 @@ import { Icon } from "astro-icon/components";
 	<div class={layoutStyles.headerInsideContainer}>
 		<!-- We cannot put this in a conditional, a bug in Astro preventing us? -->
 		<script>
-			import { backButtonListener } from "../../../../components/layout/backbtn";
+			import { backButtonListener } from "../../../../components/layout/backbtn.ts";
 			backButtonListener();
 		</script>
 		<button

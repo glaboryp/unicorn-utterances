@@ -1,5 +1,5 @@
-import { RawSvg } from "components/image/raw-svg";
-import { getIcon } from "./file-tree-icons";
+import { RawSvg } from "#components/image/raw-svg.tsx";
+import { getIcon } from "./file-tree-icons.ts";
 import style from "./file-list.module.scss";
 
 const FolderIcon = `
