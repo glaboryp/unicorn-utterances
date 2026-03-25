@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 import eslintPluginAstro from "eslint-plugin-astro";
 import eslintPluginImport from "eslint-plugin-import";
 import preactConfig from "eslint-config-preact";
+import { includeIgnoreFile } from "@eslint/compat";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -24,15 +25,12 @@ const pfpTypeScriptRules = {
 
 export default tseslint.config(
 	// Base ignores
+	includeIgnoreFile(fileURLToPath(new URL(".gitignore", import.meta.url))),
 	{
 		ignores: [
-			"**/node_modules/**",
-			"**/dist/**",
-			"**/package-lock.json",
-			"**/*.md",
-			"**/*.min.js",
 			"content/**/*",
 			"public/content/**/*",
+			"public/sw.js",
 		],
 	},
 
