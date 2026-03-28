@@ -33,7 +33,17 @@ export default defineConfig({
 			},
 		},
 	},
-	integrations: [icon(), preact({ compat: true })],
+	integrations: [
+		icon(),
+		preact({
+			compat: true,
+			babel: {
+				generatorOpts: {
+					importAttributesKeyword: "with",
+				},
+			},
+		}),
+	],
 	server: {
 		headers: {
 			"Cross-Origin-Embedder-Policy": "require-corp",

@@ -1,5 +1,5 @@
 import * as api from "#utils/api.ts";
-import tagsObj from "../../content/data/tags.json";
+import tagsObj from "../../content/data/tags.json" with { type: "json" };
 import type {
 	SearchFiltersData,
 	TagFilterInfo,

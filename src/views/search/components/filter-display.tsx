@@ -1,7 +1,7 @@
 import { useMemo } from "preact/hooks";
 import type { PersonInfo, TagInfo } from "#types/index.ts";
 import type { CSSProperties } from "preact";
-import { useWindowSize } from "../../../hooks/use-window-size.ts";
+import { useWindowSize } from "../../../hooks/use-window-size.tsx";
 import { tabletLarge } from "../../../tokens/breakpoints.ts";
 import { FilterDialog } from "./filter-dialog.tsx";
 import { FilterSidebar } from "./filter-sidebar.tsx";

@@ -41,8 +41,8 @@ import {
 	PUBLIC_SEARCH_KEY,
 } from "./constants.ts";
 import Typesense from "typesense";
-import Collection from "typesense/lib/Typesense/Collection.ts";
-import Documents from "typesense/lib/Typesense/Documents.ts";
+import Collection from "typesense/lib/Typesense/Collection";
+import Documents from "typesense/lib/Typesense/Documents";
 import { collectionSchema, postSchema } from "#utils/search.ts";
 
 const user = userEvent.setup();

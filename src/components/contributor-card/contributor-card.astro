@@ -5,7 +5,7 @@ import { Picture } from "../image/picture.tsx";
 import { Button } from "../index.ts";
 import { translate } from "../../utils/translations.ts";
 import { getHrefContainerProps } from "../../utils/href-container-script.ts";
-import allRoles from "../../../content/data/roles.json";
+import allRoles from "../../../content/data/roles.json" with { type: "json" };
 import { tabletSmall } from "../../tokens/breakpoints.ts";
 
 interface CardProps {
