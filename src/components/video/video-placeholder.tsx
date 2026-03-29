@@ -1,10 +1,10 @@
-import { IconOnlyButton } from "components/button/button";
-import { RawSvg } from "components/image/raw-svg";
+import { IconOnlyButton } from "#components/button/button.tsx";
+import { RawSvg } from "#components/image/raw-svg.tsx";
 import { useState } from "preact/hooks";
-import PlayIcon from "src/icons/play.svg?raw";
-import YoutubeIcon from "src/icons/youtube.svg?raw";
+import PlayIcon from "#src/icons/play.svg?raw";
+import YoutubeIcon from "#src/icons/youtube.svg?raw";
 import style from "./video-placeholder.module.scss";
-import { HTMLAttributes } from "preact/compat";
+import type { HTMLAttributes } from "preact/compat";
 
 // This is hardcoded as 'false' because youtube does not support embedding within an iframe
 // in credentialless mode.

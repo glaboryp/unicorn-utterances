@@ -1,13 +1,13 @@
 import { useLayoutEffect, useMemo } from "preact/hooks";
 
-import { useElementSize } from "../../hooks/use-element-size";
-import { LongWave } from "../events/components/long-wave/long-wave";
-import { EventBlock } from "../events/types";
-import { UrlMetadataResponse } from "utils/hoof";
-import { EventChip } from "../events/components/event-chip/event-chip";
-import { LargeButton } from "components/button/button";
+import { useElementSize } from "../../hooks/use-element-size.tsx";
+import { LongWave } from "../events/components/long-wave/long-wave.tsx";
+import type { EventBlock } from "../events/types.ts";
+import type { UrlMetadataResponse } from "#utils/hoof/index.ts";
+import { EventChip } from "../events/components/event-chip/event-chip.tsx";
+import { LargeButton } from "#components/button/button.tsx";
 import dayjs from "dayjs";
-import { getHrefContainerProps } from "utils/href-container-script";
+import { getHrefContainerProps } from "#utils/href-container-script.ts";
 import style from "./book-club.module.scss";
 
 interface EventBlockWithMetadata extends EventBlock {

@@ -20,7 +20,13 @@
 	},
 	"packageManager": "pnpm@10.28.1",
 	"engines": {
-		"node": "22.x"
+		"node": "24.x"
+	},
+	"imports": {
+		"#components/*": "./src/components/*",
+		"#src/*": "./src/*",
+		"#types/*": "./src/types/*",
+		"#utils/*": "./src/utils/*"
 	},
 	"scripts": {
 		"debug": "NODE_OPTIONS='--inspect-brk' astro dev --verbose",
@@ -32,9 +38,9 @@
 		"build:local": "astro build --mode localhost",
 		"preview": "astro preview",
 		"format": "prettier -w . --cache --plugin-search-dir=.",
-		"lint": "eslint \"src/**/*.{js,ts,tsx,jsx,astro}\" \"*.{js,ts,tsx,jsx}\"",
-		"lint:fix": "eslint --cache --fix \"src/**/*.{js,ts,tsx,jsx,astro}\" \"*.{js,ts,tsx,jsx}\"",
-		"search-index:deploy": "tsx --env-file-if-exists=.env --tsconfig tsconfig.script.json build-scripts/search-index/deploy.ts",
+		"lint": "eslint \"**/*.{js,ts,tsx,jsx,astro}\"",
+		"lint:fix": "eslint --cache --fix \"**/*.{js,ts,tsx,jsx,astro}\"",
+		"search-index:deploy": "node --env-file-if-exists=.env --experimental-strip-types scripts/deploy-search-index.ts",
 		"hoof:generate": "openapi-typescript 'https://hoof.playfulprogramming.com/docs/openapi.json' -o src/utils/hoof/schema.d.ts",
 		"tsc": "astro check && tsc --noEmit",
 		"test": "pnpm run test:unit && pnpm run test:e2e",
@@ -51,7 +57,8 @@
 	"devDependencies": {
 		"@astrojs/check": "^0.9.7",
 		"@astrojs/node": "^10.0.3",
-		"@astrojs/preact": "^5.0.0",
+		"@astrojs/preact": "^5.1.0",
+		"@eslint/compat": "^2.0.3",
 		"@eslint/eslintrc": "^3.3.3",
 		"@eslint/js": "^9.39.2",
 		"@lesjoursfr/html-to-epub": "^6.0.1",
@@ -86,6 +93,7 @@
 		"eslint": "^9.39.2",
 		"eslint-config-preact": "^2.0.0",
 		"eslint-plugin-astro": "^1.6.0",
+		"eslint-plugin-import": "^2.32.0",
 		"feed": "^5.1.0",
 		"git-branch": "^2.0.1",
 		"globals": "^17.0.0",
@@ -131,7 +139,6 @@
 		"terser": "^5.44.1",
 		"tiny-async-pool": "^2.1.0",
 		"tinypool": "^2.1.0",
-		"tsx": "^4.21.0",
 		"typescript": "^5.9.3",
 		"typescript-eslint": "^8.52.0",
 		"unified": "^11.0.5",

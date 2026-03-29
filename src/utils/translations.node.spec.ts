@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
-import { Languages } from "types/index";
-import * as translations from "./translations";
+import type { Languages } from "#types/index.ts";
+import * as translations from "./translations.ts";
 
 describe("utils/translations.ts", () => {
 	describe("fileToOpenGraphConverter", () => {

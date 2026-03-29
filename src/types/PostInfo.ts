@@ -1,5 +1,5 @@
-import { Languages } from "types/index";
-import { LocalFile } from "types/LocalFile";
+import type { Languages } from "#types/index.ts";
+import type { LocalFile } from "#types/LocalFile.ts";
 
 export interface RawPostInfo {
 	title: string;

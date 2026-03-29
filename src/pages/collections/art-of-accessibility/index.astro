@@ -1,11 +1,14 @@
 ---
-import Barebones from "src/layouts/barebones.astro";
+import Barebones from "#src/layouts/barebones.astro";
 
-import SEO from "src/components/seo/seo.astro";
-import Header from "src/views/collections/framework-field-guide/segments/header.astro";
+import SEO from "#src/components/seo/seo.astro";
+import Header from "#src/views/collections/framework-field-guide/segments/header.astro";
 import Hero from "../../../views/collections/art-of-accessibility/segments/hero.astro";
-import { getPersonById } from "../../../utils/api";
-import { getCollectionBySlug, getPostsByCollection } from "../../../utils/api";
+import {
+	getPersonById,
+	getCollectionBySlug,
+	getPostsByCollection,
+} from "#utils/api.ts";
 
 import "../../../views/collections/framework-field-guide/fonts/plus-jakarta-sans.css";
 import "../../../views/collections/framework-field-guide/fonts/changa-one.css";
@@ -84,10 +87,10 @@ const comingSoon = [
 	</main>
 </Barebones>
 <script>
-	import { enableSmoothScrollForAnchorsToCurrentPage } from "utils/smooth-scroll-for-anchors-to-current-page";
+	import { enableSmoothScrollForAnchorsToCurrentPage } from "#utils/smooth-scroll-for-anchors-to-current-page.ts";
 	enableSmoothScrollForAnchorsToCurrentPage();
 </script>
 <script>
-	import { enableParallaxScrolling } from "../../../views/collections/framework-field-guide/scripts/parallax-scrolling";
+	import { enableParallaxScrolling } from "../../../views/collections/framework-field-guide/scripts/parallax-scrolling.ts";
 	enableParallaxScrolling();
 </script>

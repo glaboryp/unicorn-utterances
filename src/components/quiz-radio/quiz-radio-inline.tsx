@@ -1,8 +1,8 @@
 import { useCallback, useMemo, useState } from "preact/hooks";
-import { QuizRadio, QuizRadioOption } from "./quiz-radio";
+import { type QuizRadioOption, QuizRadio } from "./quiz-radio.tsx";
 import { useStore } from "@nanostores/preact";
-import { $quizState } from "./atom";
-import { ComponentChildren } from "preact";
+import { $quizState } from "./atom.ts";
+import type { ComponentChildren } from "preact";
 
 export interface QuizRadioInlineProps {
 	id: string;

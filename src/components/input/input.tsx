@@ -1,14 +1,14 @@
 import style from "./input.module.scss";
-import { Fragment, InputHTMLAttributes, JSX } from "preact";
+import { type InputHTMLAttributes, type JSX, Fragment } from "preact";
 import search from "../../icons/search.svg?raw";
 import close from "../../icons/close.svg?raw";
 import {
+	type ButtonProps,
+	type AllowedTags,
 	IconOnlyButton,
-	ButtonProps,
-	AllowedTags,
-} from "components/button/button";
-import { useRandomId } from "utils/preact/useId";
-import { ReactElement, Ref } from "preact/compat";
+} from "#components/button/button.tsx";
+import { useRandomId } from "#utils/preact/useId.ts";
+import type { ReactElement, Ref } from "preact/compat";
 
 interface InputProps extends InputHTMLAttributes {
 	label?: string;

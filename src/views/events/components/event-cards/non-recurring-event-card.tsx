@@ -1,10 +1,10 @@
 import dayjs from "dayjs";
-import { NonRecurringEventsCardProps } from "./types";
-import { getHrefContainerProps } from "utils/href-container-script";
-import date from "src/icons/date.svg?raw";
+import type { NonRecurringEventsCardProps } from "./types.ts";
+import { getHrefContainerProps } from "#utils/href-container-script.ts";
+import date from "#src/icons/date.svg?raw";
 import style from "./non-recurring-event-card.module.scss";
 import { useMemo } from "preact/hooks";
-import { EventChip } from "../event-chip/event-chip";
+import { EventChip } from "../event-chip/event-chip.tsx";
 
 export function NonRecurringEventsCard({ event }: NonRecurringEventsCardProps) {
 	// Helps us get the event with the earliest start time

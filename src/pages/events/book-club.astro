@@ -1,10 +1,11 @@
 ---
-import BookClubPage from "../../views/book-club/book-club";
+import BookClubPage from "../../views/book-club/book-club.tsx";
 import Document from "../../layouts/document.astro";
 import SEO from "../../components/seo/seo.astro";
-import { events } from "../../views/events/constants";
-import { getUrlMetadata, UrlMetadataResponse } from "utils/hoof";
-import { Event, EventBlock } from "../../views/events/types";
+import { events } from "../../views/events/constants.ts";
+import type { UrlMetadataResponse } from "#utils/hoof/index.ts";
+import { getUrlMetadata } from "#utils/hoof/index.ts";
+import type { Event, EventBlock } from "../../views/events/types.ts";
 
 const event: Event = events.find((e) => e.slug === "book-club")!;
 

@@ -1,4 +1,4 @@
-import { Event, EventBlock } from "./types";
+import type { Event, EventBlock } from "./types.ts";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import utc from "dayjs/plugin/utc";

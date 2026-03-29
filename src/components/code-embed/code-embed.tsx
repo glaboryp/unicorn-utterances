@@ -1,18 +1,18 @@
-import PlayIcon from "src/icons/play.svg?raw";
-import EditIcon from "src/icons/edit.svg?raw";
-import RefreshIcon from "src/icons/refresh.svg?raw";
-import DotIcon from "src/icons/dot.svg?raw";
-import LoadingIcon from "src/icons/loading.svg?raw";
-import CheckmarkIcon from "src/icons/checkmark.svg?raw";
-import { PropsWithChildren } from "components/types";
-import { RawSvg } from "components/image/raw-svg";
-import { Button, IconOnlyButton } from "components/button/button";
+import PlayIcon from "#src/icons/play.svg?raw";
+import EditIcon from "#src/icons/edit.svg?raw";
+import RefreshIcon from "#src/icons/refresh.svg?raw";
+import DotIcon from "#src/icons/dot.svg?raw";
+import LoadingIcon from "#src/icons/loading.svg?raw";
+import CheckmarkIcon from "#src/icons/checkmark.svg?raw";
+import type { PropsWithChildren } from "#components/types.ts";
+import { RawSvg } from "#components/image/raw-svg.tsx";
+import { Button, IconOnlyButton } from "#components/button/button.tsx";
 import style from "./code-embed.module.scss";
 import { useCallback, useId, useMemo } from "preact/hooks";
-import { TargetedEvent, ComponentChildren } from "preact";
-import { FilePicker } from "./file-picker";
-import { FileEntry } from "./types";
-import { ResizeablePanels } from "./resizeable-panels";
+import type { TargetedEvent, ComponentChildren } from "preact";
+import { FilePicker } from "./file-picker.tsx";
+import type { FileEntry } from "./types.ts";
+import { ResizeablePanels } from "./resizeable-panels.tsx";
 
 interface ContainerProps {
 	title?: string;

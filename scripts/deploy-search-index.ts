@@ -1,19 +1,23 @@
-import * as api from "utils/api";
-import type { PostInfo, SearchPostInfo } from "types/PostInfo";
-import type { SearchCollectionInfo } from "types/CollectionInfo";
-import { getMarkdownVFile } from "utils/markdown/getMarkdownVFile";
-import { getExcerpt } from "utils/markdown/get-excerpt";
+import * as api from "#utils/api.ts";
+import type { PostInfo, SearchPostInfo } from "#types/PostInfo.ts";
+import type { SearchCollectionInfo } from "#types/CollectionInfo.ts";
+import { getMarkdownVFile } from "#utils/markdown/getMarkdownVFile.ts";
+import { getExcerpt } from "#utils/markdown/get-excerpt.ts";
 import matter from "gray-matter";
-import { getPostImages } from "utils/hoof";
+import { getPostImages } from "#utils/hoof/index.ts";
 import asyncPool from "tiny-async-pool";
-import env from "constants/env";
+import env from "#src/constants/env/index.ts";
 import Typesense from "typesense";
 import {
 	PUBLIC_SEARCH_ENDPOINT_HOST,
 	PUBLIC_SEARCH_ENDPOINT_PORT,
 	PUBLIC_SEARCH_ENDPOINT_PROTOCOL,
-} from "../../src/views/search/constants";
-import { collectionSchema, PostDocument, postSchema } from "utils/search";
+} from "../src/views/search/constants.ts";
+import {
+	type PostDocument,
+	collectionSchema,
+	postSchema,
+} from "#utils/search.ts";
 
 // The deploy script cannot use import.meta.env, as it runs through tsx
 if (!env.TYPESENSE_WRITE_API_KEY) {

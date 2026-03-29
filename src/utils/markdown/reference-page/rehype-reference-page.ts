@@ -1,11 +1,11 @@
-import { Root, Node } from "hast";
-import { Plugin } from "unified";
-import { PostInfo, RawPostInfo } from "types/PostInfo";
+import type { Root, Node } from "hast";
+import type { Plugin } from "unified";
+import type { PostInfo, RawPostInfo } from "#types/PostInfo.ts";
 import { visit } from "unist-util-visit";
 import { toString } from "hast-util-to-string";
-import { SuperScriptLink } from "./link";
-import * as api from "utils/api";
-import { MarkdownVFile } from "../types";
+import { SuperScriptLink } from "./link.tsx";
+import * as api from "#utils/api.ts";
+import type { MarkdownVFile } from "../types.ts";
 
 export interface CollectionLinks {
 	node: Node;

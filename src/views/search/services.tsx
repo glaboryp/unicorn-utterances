@@ -1,9 +1,9 @@
-import { PostInfo } from "types/PostInfo";
-import { CollectionInfo } from "types/CollectionInfo";
-import { PropsWithChildren } from "components/types";
+import type { PostInfo } from "#types/PostInfo.ts";
+import type { CollectionInfo } from "#types/CollectionInfo.ts";
+import type { PropsWithChildren } from "#components/types.ts";
 import { createContext } from "preact";
 import { useContext } from "preact/hooks";
-import { SearchQuery } from "./search";
+import type { SearchQuery } from "./search.ts";
 import {
 	// HYBRID_SEARCH_ACTIVATION_THRESHOLD,
 	MAX_POSTS_PER_PAGE,
@@ -12,14 +12,14 @@ import {
 	PUBLIC_SEARCH_ENDPOINT_PORT,
 	PUBLIC_SEARCH_ENDPOINT_HOST,
 	PUBLIC_SEARCH_ENDPOINT_PROTOCOL,
-} from "./constants";
+} from "./constants.ts";
 import Typesense from "typesense";
 import {
-	CollectionDocument,
+	type CollectionDocument,
+	type PostDocument,
 	collectionSchema,
-	PostDocument,
 	postSchema,
-} from "utils/search";
+} from "#utils/search.ts";
 
 export interface SearchContext {
 	client: InstanceType<typeof Typesense.Client>;

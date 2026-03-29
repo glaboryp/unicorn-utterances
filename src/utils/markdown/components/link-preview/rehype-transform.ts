@@ -1,19 +1,19 @@
-import { Element } from "hast";
+import type { Element } from "hast";
 import { find } from "unist-util-find";
 import { toString } from "hast-util-to-string";
 import { URL } from "url";
-import { RehypeFunctionComponent } from "../types";
-import { isElement } from "utils/markdown/unist-is-element";
+import type { RehypeFunctionComponent } from "../types.ts";
+import { isElement } from "#utils/markdown/unist-is-element.ts";
 import {
-	ComponentMarkupNode,
+	type ComponentMarkupNode,
+	type PlayfulRoot,
 	createComponent,
-	PlayfulRoot,
-} from "../components";
-import { Plugin } from "unified";
-import { getUrlMetadata, UrlMetadataResponse } from "utils/hoof";
-import { logError } from "utils/markdown/logger";
-import { siteUrl } from "constants/site-config";
-import * as api from "utils/api";
+} from "../components.ts";
+import type { Plugin } from "unified";
+import { type UrlMetadataResponse, getUrlMetadata } from "#utils/hoof/index.ts";
+import { logError } from "#utils/markdown/logger.ts";
+import { siteUrl } from "#src/constants/site-config.ts";
+import * as api from "#utils/api.ts";
 
 /**
  * Transform image-wrapped links into a link preview component

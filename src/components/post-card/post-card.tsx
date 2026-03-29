@@ -1,11 +1,11 @@
 import style from "./post-card.module.scss";
-import { PersonInfo } from "types/index";
-import { Chip } from "components/index";
-import date from "src/icons/date.svg?raw";
-import authorsSvg from "src/icons/authors.svg?raw";
-import { getHrefContainerProps } from "utils/href-container-script";
-import { buildSearchQuery } from "src/views/search/search";
-import { PostInfoWithBanner } from "./types";
+import type { PersonInfo } from "#types/index.ts";
+import { Chip } from "#components/index.ts";
+import date from "#src/icons/date.svg?raw";
+import authorsSvg from "#src/icons/authors.svg?raw";
+import { getHrefContainerProps } from "#utils/href-container-script.ts";
+import { buildSearchQuery } from "#src/views/search/search.ts";
+import type { PostInfoWithBanner } from "./types.ts";
 
 interface PostCardProps {
 	headingTag?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
