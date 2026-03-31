@@ -44,4 +44,5 @@ export interface Event {
 	in_person: boolean;
 	is_online: true;
 	is_recurring: boolean;
+	has_event_page: boolean;
 }
