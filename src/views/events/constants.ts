@@ -208,7 +208,53 @@ export const bookClubBlocks = [
 		presenters: [],
 		timezone: "America/Los_Angeles",
 	},
+	{
+		slug: "book-club-04-01-2026",
+		starts_at: dayjs("04-01-2026 04:30 PM", "MM-DD-YYYY hh:mm A")
+			.tz("America/Los_Angeles", true)
+			.toDate(),
+		ends_at: dayjs("04-01-2026 05:30 PM", "MM-DD-YYYY hh:mm A")
+			.tz("America/Los_Angeles", true)
+			.toDate(),
+		location_description: "CSS is DOOMed",
+		location_url:
+			"https://nielsleenheer.com/articles/2026/css-is-doomed-rendering-doom-in-3d-with-css/",
+		presenters: [],
+		timezone: "America/Los_Angeles",
+	},
 ] satisfies EventBlock[];
+
+for (const _ of new Array(5).fill(0)) {
+	const lastEvent = bookClubBlocks.at(-1)!;
+	const starts_at = dayjs(lastEvent.starts_at).add(1, "week");
+	bookClubBlocks.push({
+		...lastEvent,
+		slug: starts_at.format("MM-DD-YYYY"),
+		starts_at: starts_at.toDate(),
+		ends_at: dayjs(lastEvent.ends_at).add(1, "week").toDate(),
+		location_description: "Discord",
+		location_url: "https://discord.com/invite/FMcvc6T",
+	});
+}
+
+export const officeHoursBlocks = new Array(64).fill(0).map(
+	(_, index) =>
+		({
+			slug: "office-hours",
+			starts_at: dayjs("04-02-2026 6:00 PM", "MM-DD-YYYY hh:mm A")
+				.add(index, "week")
+				.tz("America/Los_Angeles", true)
+				.toDate(),
+			ends_at: dayjs("04-02-2027 6:00 PM", "MM-DD-YYYY hh:mm A")
+				.add(index, "week")
+				.tz("America/Los_Angeles", true)
+				.toDate(),
+			location_description: "Discord",
+			location_url: "https://discord.com/invite/FMcvc6T",
+			presenters: [],
+			timezone: "America/Los_Angeles",
+		}) satisfies EventBlock,
+);
 
 export const SacramentoBootcampBlocks = [
 	{
@@ -238,6 +284,7 @@ export const events = [
 		in_person: false,
 		is_online: true,
 		is_recurring: true,
+		has_event_page: true,
 	},
 	{
 		slug: "sacramento-bootcamp",
@@ -252,5 +299,20 @@ export const events = [
 		in_person: true,
 		is_online: true,
 		is_recurring: false,
+		has_event_page: true,
+	},
+	{
+		slug: "office-hours",
+		title: "Office Hours",
+		description:
+			"This is a time for us all to hang out and get help with anything development-related - whether it’s a project, career advice, or anything else that comes to mind.",
+		location_description: "",
+		location_url: "",
+		blocks: officeHoursBlocks,
+		organizers: [],
+		in_person: false,
+		is_online: true,
+		is_recurring: true,
+		has_event_page: false,
 	},
 ] satisfies Event[];
