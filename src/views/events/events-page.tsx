@@ -1,21 +1,21 @@
 import { useLayoutEffect, useMemo, useState } from "preact/hooks";
-import { events } from "./constants";
+import { events } from "./constants.ts";
 import {
 	RadioButton,
 	RadioButtonGroup,
-} from "components/button-radio-group/button-radio-group";
+} from "#components/button-radio-group/button-radio-group.tsx";
 
-import { useElementSize } from "../../hooks/use-element-size";
+import { useElementSize } from "../../hooks/use-element-size.tsx";
 
-import { Calendar } from "./components/calendar/calendar";
-import { LongWave } from "./components/long-wave/long-wave";
-import filter from "src/icons/filter.svg?raw";
+import { Calendar } from "./components/calendar/calendar.tsx";
+import { LongWave } from "./components/long-wave/long-wave.tsx";
+import filter from "#src/icons/filter.svg?raw";
 import style from "./events-page.module.scss";
 import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
-import { LatestEventBlockLocationMetadataType } from "./components/event-cards/types";
-import { RecurringEventsCard } from "./components/event-cards/recurring-event-card";
-import { NonRecurringEventsCard } from "./components/event-cards/non-recurring-event-card";
+import type { LatestEventBlockLocationMetadataType } from "./components/event-cards/types.ts";
+import { RecurringEventsCard } from "./components/event-cards/recurring-event-card.tsx";
+import { NonRecurringEventsCard } from "./components/event-cards/non-recurring-event-card.tsx";
 
 dayjs.extend(advancedFormat);
 

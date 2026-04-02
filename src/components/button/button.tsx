@@ -1,10 +1,10 @@
-import { JSXNode, PropsWithChildren } from "../types";
-import {
+import type { JSXNode, PropsWithChildren } from "../types.ts";
+import type {
 	AnchorHTMLAttributes,
 	ButtonHTMLAttributes,
 	HTMLAttributes,
 } from "preact";
-import { forwardRef, ReactElement, Ref } from "preact/compat";
+import { type ReactElement, type Ref, forwardRef } from "preact/compat";
 
 export type AllowedTags = "a" | "button" | "span" | "div";
 

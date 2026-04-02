@@ -1,4 +1,4 @@
-import {
+import type {
 	RawCollectionInfo,
 	PersonInfo,
 	RawPostInfo,
@@ -6,12 +6,12 @@ import {
 	CollectionInfo,
 	TagInfo,
 	RawPersonInfo,
-} from "types/index";
+} from "#types/index.ts";
 import * as fs from "fs/promises";
 import path, { join } from "path";
 import { isNotJunk as baseIsNotJunk } from "junk";
-import { getImageSize } from "../utils/get-image-size";
-import { resolvePath } from "./url-paths";
+import { getImageSize } from "../utils/get-image-size.ts";
+import { resolvePath } from "./url-paths.ts";
 import matter from "gray-matter";
 import dayjs from "dayjs";
 
@@ -19,14 +19,14 @@ import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkToRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
-import { rehypePlayfulElementMap } from "./markdown/rehype-playful-element-map";
-import { getExcerpt } from "./markdown/get-excerpt";
-import { getLanguageFromFilename } from "./translations";
-import aboutRaw from "../../content/data/about.json";
-import rolesRaw from "../../content/data/roles.json";
-import licensesRaw from "../../content/data/licenses.json";
-import tagsRaw from "../../content/data/tags.json";
-import { LocalFile } from "types/LocalFile";
+import { rehypePlayfulElementMap } from "./markdown/rehype-playful-element-map.ts";
+import { getExcerpt } from "./markdown/get-excerpt.ts";
+import { getLanguageFromFilename } from "./translations.ts";
+import aboutRaw from "../../content/data/about.json" with { type: "json" };
+import rolesRaw from "../../content/data/roles.json" with { type: "json" };
+import licensesRaw from "../../content/data/licenses.json" with { type: "json" };
+import tagsRaw from "../../content/data/tags.json" with { type: "json" };
+import type { LocalFile } from "#types/LocalFile.ts";
 
 function isNotJunk(name: string): boolean {
 	// Ignore VSCode and JetBrains project files

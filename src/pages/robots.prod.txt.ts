@@ -1,7 +1,7 @@
-import { siteUrl } from "constants/site-config";
-import { getAllPosts, getAllCollections } from "utils/api";
-import { PostInfo } from "types/PostInfo";
-import { CollectionInfo } from "types/CollectionInfo";
+import { siteUrl } from "#src/constants/site-config.ts";
+import { getAllPosts, getAllCollections } from "#utils/api.ts";
+import type { PostInfo } from "#types/PostInfo.ts";
+import type { CollectionInfo } from "#types/CollectionInfo.ts";
 
 const noIndexPosts = getAllPosts().filter((post) => post.noindex);
 const noIndexCollection = getAllCollections().filter(

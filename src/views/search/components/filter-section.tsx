@@ -1,10 +1,10 @@
-import { ComponentChildren } from "preact";
+import type { ComponentChildren } from "preact";
 import { useState, useRef } from "preact/hooks";
-import { useElementSize } from "../../../hooks/use-element-size";
+import { useElementSize } from "../../../hooks/use-element-size.tsx";
 import styles from "./filter-section.module.scss";
-import { Chip } from "components/chip/chip";
-import { HTMLAttributes } from "preact/compat";
-import { useRandomId } from "utils/preact/useId";
+import { Chip } from "#components/chip/chip.tsx";
+import type { HTMLAttributes } from "preact/compat";
+import { useRandomId } from "#utils/preact/useId.ts";
 
 interface FilterSectionProps extends HTMLAttributes<HTMLDivElement> {
 	title: string;

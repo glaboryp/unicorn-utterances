@@ -1,13 +1,13 @@
 import styles from "./pagination.module.scss";
-import forward from "src/icons/arrow_right.svg?raw";
-import back from "src/icons/arrow_left.svg?raw";
-import { PaginationMenuAndPopover } from "components/pagination/pagination-popover";
-import {
+import forward from "#src/icons/arrow_right.svg?raw";
+import back from "#src/icons/arrow_left.svg?raw";
+import { PaginationMenuAndPopover } from "#components/pagination/pagination-popover.tsx";
+import type {
 	PaginationButtonProps,
 	PaginationProps,
-} from "components/pagination/types";
-import { usePagination } from "./use-pagination";
-import { onSoftNavClick } from "./on-click-base";
+} from "#components/pagination/types.ts";
+import { usePagination } from "./use-pagination.ts";
+import { onSoftNavClick } from "./on-click-base.ts";
 
 function PaginationButton({
 	pageInfo,

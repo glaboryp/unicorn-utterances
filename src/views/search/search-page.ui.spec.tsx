@@ -6,7 +6,7 @@ import {
 	vi,
 	worker,
 	type Mock,
-} from "ui-test-utils";
+} from "#src/ui-test-utils/index.ts";
 import { page } from "vitest/browser";
 import {
 	findByText as findByTextFrom,
@@ -14,18 +14,24 @@ import {
 	waitFor,
 	cleanup,
 } from "@testing-library/preact";
-import { SearchPageBase } from "./search-page";
+import { SearchPageBase } from "./search-page.tsx";
 import { http, HttpResponse } from "msw";
-import { MockCanonicalPost, MockPost } from "../../../__mocks__/data/mock-post";
+import {
+	MockCanonicalPost,
+	MockPost,
+} from "../../../__mocks__/data/mock-post.ts";
 import userEvent from "@testing-library/user-event";
-import { MockCollection } from "../../../__mocks__/data/mock-collection";
-import { MockPerson, MockPersonTwo } from "../../../__mocks__/data/mock-person";
-import { buildSearchQuery } from "src/views/search/search";
-import { PersonInfo } from "types/PersonInfo";
-import { PostInfo } from "types/PostInfo";
-import { CollectionInfo } from "types/CollectionInfo";
+import { MockCollection } from "../../../__mocks__/data/mock-collection.ts";
+import {
+	MockPerson,
+	MockPersonTwo,
+} from "../../../__mocks__/data/mock-person.ts";
+import { buildSearchQuery } from "#src/views/search/search.ts";
+import type { PersonInfo } from "#types/PersonInfo.ts";
+import type { PostInfo } from "#types/PostInfo.ts";
+import type { CollectionInfo } from "#types/CollectionInfo.ts";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { SearchClient, SearchContext } from "./services";
+import { type SearchContext, SearchClient } from "./services.tsx";
 import {
 	MAX_COLLECTIONS_PER_PAGE,
 	MAX_POSTS_PER_PAGE,
@@ -33,11 +39,11 @@ import {
 	PUBLIC_SEARCH_ENDPOINT_PORT,
 	PUBLIC_SEARCH_ENDPOINT_PROTOCOL,
 	PUBLIC_SEARCH_KEY,
-} from "./constants";
+} from "./constants.ts";
 import Typesense from "typesense";
 import Collection from "typesense/lib/Typesense/Collection";
 import Documents from "typesense/lib/Typesense/Documents";
-import { collectionSchema, postSchema } from "utils/search";
+import { collectionSchema, postSchema } from "#utils/search.ts";
 
 const user = userEvent.setup();
 

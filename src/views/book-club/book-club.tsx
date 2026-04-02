@@ -1,13 +1,13 @@
 import { useLayoutEffect, useMemo } from "preact/hooks";
 
-import { useElementSize } from "../../hooks/use-element-size";
-import { LongWave } from "../events/components/long-wave/long-wave";
-import { EventBlock } from "../events/types";
-import { UrlMetadataResponse } from "utils/hoof";
-import { EventChip } from "../events/components/event-chip/event-chip";
-import { LargeButton } from "components/button/button";
+import { useElementSize } from "../../hooks/use-element-size.tsx";
+import { LongWave } from "../events/components/long-wave/long-wave.tsx";
+import type { EventBlock } from "../events/types.ts";
+import type { UrlMetadataResponse } from "#utils/hoof/index.ts";
+import { EventChip } from "../events/components/event-chip/event-chip.tsx";
+import { LargeButton } from "#components/button/button.tsx";
 import dayjs from "dayjs";
-import { getHrefContainerProps } from "utils/href-container-script";
+import { getHrefContainerProps } from "#utils/href-container-script.ts";
 import style from "./book-club.module.scss";
 
 interface EventBlockWithMetadata extends EventBlock {
@@ -65,7 +65,7 @@ function BookClubSmallCard({ eventBlock }: BookClubSmallCardProps) {
 	return (
 		<li className={style.smallCardContainer}>
 			<p className={`text-style-headline-5 ${style.smallEventBlockDate}`}>
-				{dayjs(eventBlock.starts_at).format("dddd, MMM D")}
+				{dayjs(eventBlock.starts_at).format("MMM D, YYYY")}
 			</p>
 			<div
 				className={style.smallCard}
@@ -118,26 +118,27 @@ export default function BookClub({ eventBlocksWithMetadata }: BookClubProps) {
 		});
 	}, [eventBlocksWithMetadata]);
 
-	const { pastEventBlocks, currentEventBlock } = useMemo(() => {
+	const { pastEventBlocks, currentEventBlocks } = useMemo(() => {
 		const pastEventBlocks: EventBlockWithMetadata[] = [];
+		const currentEventBlocks: EventBlockWithMetadata[] = [];
 		const now = new Date();
 
-		let currentEventIndex = -1;
-		for (let i = 0; i < sortedEventBlocks.length; i++) {
-			const block = sortedEventBlocks[i];
-			if (block.starts_at < now) {
-				pastEventBlocks.push(block);
-				continue;
+		let foundFuture = false;
+		for (const block of sortedEventBlocks) {
+			if (!foundFuture && block.starts_at > now) {
+				foundFuture = true;
 			}
 
-			// Because the events are sorted chronologically, we can do this safely
-			currentEventIndex = i;
-			break;
+			if (foundFuture) {
+				currentEventBlocks.push(block);
+			} else {
+				pastEventBlocks.push(block);
+			}
 		}
 
-		const currentEventBlock = sortedEventBlocks.slice(currentEventIndex);
+		pastEventBlocks.reverse();
 
-		return { pastEventBlocks, currentEventBlock };
+		return { pastEventBlocks, currentEventBlocks };
 	}, [sortedEventBlocks]);
 
 	return (
@@ -180,7 +181,7 @@ export default function BookClub({ eventBlocksWithMetadata }: BookClubProps) {
 			</div>
 			<div className={style.listsContainer}>
 				<ul className={style.largeCardList}>
-					{currentEventBlock.map((block) => (
+					{currentEventBlocks.map((block) => (
 						<BookClubLargeCard eventBlock={block} key={block.slug} />
 					))}
 				</ul>

@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
 
-import { serializeInlineCall } from "./serialize-inline-call";
+import { serializeInlineCall } from "./serialize-inline-call.ts";
 
 const sampleFunction = (
 	title: string,

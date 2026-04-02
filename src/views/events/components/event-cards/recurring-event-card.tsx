@@ -1,10 +1,10 @@
 import dayjs from "dayjs";
-import { Button } from "components/button/button";
-import { RecurringEventsCardProps } from "./types";
-import { getHrefContainerProps } from "utils/href-container-script";
-import date from "src/icons/date.svg?raw";
+import { Button } from "#components/button/button.tsx";
+import type { RecurringEventsCardProps } from "./types.ts";
+import { getHrefContainerProps } from "#utils/href-container-script.ts";
+import date from "#src/icons/date.svg?raw";
 import style from "./recurring-event-card.module.scss";
-import { EventChip } from "../event-chip/event-chip";
+import { EventChip } from "../event-chip/event-chip.tsx";
 
 export function RecurringEventsCard({
 	latestEventBlockLocationMetadata,
@@ -18,13 +18,15 @@ export function RecurringEventsCard({
 
 	return (
 		<li
-			{...getHrefContainerProps(`/events/${event.slug}`)}
+			{...(event.has_event_page
+				? getHrefContainerProps(`/events/${event.slug}`)
+				: undefined)}
 			className={style.recurringEventCard}
 		>
 			<div className={style.cardInnerContainer}>
 				<div className={style.eventLeftContainer}>
 					<a
-						href={`/events/${event.slug}`}
+						href={event.has_event_page ? `/events/${event.slug}` : undefined}
 						className={style.recurringEventCardTitleLink}
 					>
 						<h2
